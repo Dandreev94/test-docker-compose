@@ -16,7 +16,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD:-app}
       DB_NAME: ${DB_NAME:-app}
     ports:
-      - 80:80  
+      - 8080:80  
     volumes:
       - dbdata:/var/lib/mysql
     depends_on:
