@@ -2,7 +2,9 @@ version: "3.4"
 
 services:
   php:
-    build: ./backend/
+    build: 
+      context: ./backend/
+      dockerfile: Dockerfile.dev
     deploy:
       replicas: 5
     environment:
@@ -15,15 +17,6 @@ services:
       DB_USER: ${DB_USER:-app}
       DB_PASSWORD: ${DB_PASSWORD:-app}
       DB_NAME: ${DB_NAME:-app}
-    ports:
-      - 8080:80  
-    volumes:
-      - dbdata:/var/lib/mysql
-    depends_on:
-      - database
-    restart: unless-stopped
-  frontend:
-    build: ./front/
     ports:
       - 8080:80  
     volumes:
